@@ -5,8 +5,8 @@ pipeline {
 
         stage('Checkout from GitHub') {
             steps {
-                git branch: 'master',
-                    url: 'https://github.com/laxmi916/node-k8s-app.git'
+                git branch: 'main',
+                    url: 'https://github.com/chandrashekar-chandu/selinium.git'
             }
         }
 
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                bat 'docker push laxmi916/my-k8s-app:latest'
+                bat 'docker push chandu7521/my-k8s-app:latest'
             }
         }
 
