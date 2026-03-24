@@ -20,7 +20,7 @@ pipeline {
             steps {
                 bat '''
                 docker build -t my-k8s-app:%BUILD_NUMBER% .
-                docker tag my-k8s-app:%BUILD_NUMBER% laxmi916/my-k8s-app:latest
+                docker tag my-k8s-app:%BUILD_NUMBER% chandu7521/my-k8s-app:latest
                 '''
             }
         }
@@ -36,7 +36,7 @@ pipeline {
                 bat '''
                 minikube status | findstr "Running"
                 IF %ERRORLEVEL% NEQ 0 (
-                    echo Minikube is not running. Starting now...
+                    echo Starting Minikube...
                     minikube start --driver=docker --memory=2048 --cpus=2
                 )
                 '''
