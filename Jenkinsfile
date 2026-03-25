@@ -56,7 +56,6 @@
 // }
 
 
-
 pipeline {
     agent any
 
@@ -64,8 +63,8 @@ pipeline {
         stage('Start App') {
             steps {
                 bat '''
-                start /B npm start
-                timeout /t 5
+                start "" cmd /c "npm start"
+                ping 127.0.0.1 -n 6 > nul
                 '''
             }
         }
