@@ -7,7 +7,7 @@ async function runTest() {
   const driver = await new Builder().forBrowser('chrome').build();
 
   try {
-    await driver.get('http://127.0.0.1:8080');
+    await driver.get('http://127.0.0.1:3003');
     const text = await driver.findElement(By.id('result')).getText();
     assert.strictEqual(text, 'Sum is: 5');
     console.log('Test passed');

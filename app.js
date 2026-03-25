@@ -13,7 +13,7 @@ function createApp() {
   return app;
 }
 
-function startServer(port = 8080, host = '127.0.0.1') {
+function startServer(port = 3003, host = '127.0.0.1') {
   const app = createApp();
   const server = app.listen(port, host, () => {
     const address = server.address();
