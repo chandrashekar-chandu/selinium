@@ -57,21 +57,22 @@
 
 
 
-
 pipeline {
     agent any
 
     stages {
         stage('Start App') {
             steps {
-                sh 'npm start &'
-                sh 'sleep 5'
+                bat '''
+                start /B npm start
+                timeout /t 5
+                '''
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
     }
