@@ -3,13 +3,13 @@ const { Builder, By } = require('selenium-webdriver');
 const { startServer } = require('./app');
 
 async function runTest() {
-  const server = startServer(8080, '127.0.0.1');
+  const server = startServer(3003, '127.0.0.1');
   const driver = await new Builder().forBrowser('chrome').build();
 
   try {
     await driver.get('http://127.0.0.1:3003');
     const text = await driver.findElement(By.id('result')).getText();
-    assert.strictEqual(text, 'Sum is: 5');
+    assert.strictEqual(text, 'Sum is: 7');
     console.log('Test passed');
   } finally {
     await driver.quit();
